@@ -16,18 +16,27 @@ The Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 w
 
 - custom joystick controller [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
 
-Work In Progress :)
+First V2 prototype *8x8cm* (PCB from [AISLER](https://aisler.net) manufacture) :
 
-Documentation :
+![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBox_V2_2025-10-15.png)
 
-ALPS EC11 rotary encoders : https://tech.alpsalpine.com/e/products/category/encorders/sub/01/series/ec11e/
+*Work In Progress :)*
 
-Bus I2C : https://www.i2c-bus.org
+## Documentation :
+
+ALPS EC11 rotary encoders :
+* https://tech.alpsalpine.com/e/products/category/encorders/sub/01/series/ec11e/
+
+Bus I2C :
+* https://www.i2c-bus.org
+* https://learn.adafruit.com/working-with-i2c-devices?view=all
+* https://learn.sparkfun.com/tutorials/i2c/i2c-at-the-hardware-level
+	
 
 Microchip GPIO expander MCP23017 :
-https://www.microchip.com/en-us/product/mcp23017
+* https://www.microchip.com/en-us/product/mcp23017
 
-Bill Of Materials (BOM) :
+## Bill Of Materials (BOM) :
 
 | Reference  | Qty | Value | Footprint | Description |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
