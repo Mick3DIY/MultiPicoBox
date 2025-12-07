@@ -16,11 +16,19 @@ The Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 w
 
 - custom joystick controller [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
 
-First V2 prototype *8x8cm* (PCB from [AISLER](https://aisler.net) manufacture) :
+First V2 prototype *8 x 8 cm* (PCB from [AISLER](https://aisler.net) manufacture) :
 
 ![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBox_V2_2025-10-15.png)
 
-*Work In Progress :)*
+Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for the PCB :beers:
+
+## Code :
+
+* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
+
+*Work In Progress :*
+
+* **MultiPicoBoxV2_JoystickXL_test** is for testing like a joystick :space_invader:
 
 ## Documentation :
 
@@ -31,8 +39,11 @@ Bus I2C :
 
 Microchip GPIO expander MCP23017 :
 * https://www.microchip.com/en-us/product/mcp23017
+* https://www.woolseyworkshop.com/2021/03/18/adding-digital-io-to-your-arduino-part-3-the-mcp23017/
 
 Rotary encoders :
+* https://learn.adafruit.com/rotary-encoder?view=all
+* https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/
 * ALPS EC11 series : https://tech.alpsalpine.com/e/products/category/encorders/sub/01/series/ec11e/
 
 ## Bill Of Materials (BOM) :
