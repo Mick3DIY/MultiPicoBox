@@ -10,15 +10,17 @@ This new version have :
 * 4 toggle switches, 3 fixes positions (1-0-2)
 * 6 LEDs for warnings/alerts
 
-The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8.
+
 
 The Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 with external libraries :
 
 - custom joystick controller [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
 
-First V2 prototype *8 x 8 cm* (PCB from [AISLER](https://aisler.net) manufacture) :
+The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8 (kicad folder).
 
-![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBox_V2_2025-10-15.png)
+First V2 prototype **8 x 8 cm** (PCB from [AISLER](https://aisler.net) manufacture) :
+
+![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBoxV2_2025-10-15.png)
 
 Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for the PCB :beers:
 
