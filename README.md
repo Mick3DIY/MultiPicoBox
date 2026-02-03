@@ -11,16 +11,15 @@ This new version have :
 * 6 LEDs for warnings/alerts
 
 The Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 with external libraries :
+- Adafruit module [CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx)
 
-- custom joystick controller [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
+- Joystick module [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
 
 The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8 (kicad folder).
 
-First V2 prototype **8 x 8 cm** (PCB from [AISLER](https://aisler.net) manufacturer) :
+First V2 prototype **8 x 8 cm only** (PCB from [AISLER](https://aisler.net) manufacturer) :
 
 ![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBoxV2_2025-10-15.png)
-
-Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for the PCB :beers:
 
 Some useful plugins for KiCad :
 * AISLER Push for KiCad : https://github.com/aislerhq
@@ -28,13 +27,20 @@ Some useful plugins for KiCad :
 * Board2Pdf : https://gitlab.com/dennevi/Board2Pdf
 * Solarized Dark Theme : https://github.com/pointhi/kicad-color-schemes
 
+Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for the PCB :beers:
+
 ## Code :
 
 * **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
+	- Requirement : [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx)
 
 *Work In Progress :*
 
-* **MultiPicoBoxV2_JoystickXL_test** is for testing like a joystick :space_invader:
+* **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
+	- Requirements : [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx), [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
+	
+* Useful software for testing the Pico in action (Windows, Linux) :space_invader:
+	* AntiMicroX : https://github.com/AntiMicroX/antimicrox
 
 ## Documentation :
 
@@ -74,4 +80,4 @@ Rotary encoders :
 | SW13,SW14,SW15,SW16|4|SW_SPST||Single Pole Single Throw (SPST) switch |
 | U1|1|MCP23017_I2C|Package_DIP:DIP-28_W7.62mm|16-bit I/O expander, I2C, interrupts, w pull-ups, SPDIP-28 |
 
-Happy coding & have fun ! :partying_face:
+Big thanks to Adafruit company, the Python community. :heart: Happy coding & have fun ! :partying_face:
