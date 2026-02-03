@@ -3,14 +3,12 @@
 A simple PCB with Raspberry Pi Pico with some buttons and LEDs for gaming.
 
 This new version have :
-* 1 GPIO expander with a MCP23017 chip (I2C communication with the Pico,  with jumper configurable address)
+* 1 GPIO expander with a MCP23017 chip (**I2C communication with the Pico**,  with configurable jumpers address)
 * 4 rotary encoders with a push button
 * 4 push buttons, 1 temporary position (0/1)
 * 4 push buttons, 1 fix position (0-1)
 * 4 toggle switches, 3 fixes positions (1-0-2)
 * 6 LEDs for warnings/alerts
-
-
 
 The Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 with external libraries :
 
@@ -18,11 +16,17 @@ The Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 w
 
 The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8 (kicad folder).
 
-First V2 prototype **8 x 8 cm** (PCB from [AISLER](https://aisler.net) manufacture) :
+First V2 prototype **8 x 8 cm** (PCB from [AISLER](https://aisler.net) manufacturer) :
 
 ![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBoxV2_2025-10-15.png)
 
 Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for the PCB :beers:
+
+Some useful plugins for KiCad :
+* AISLER Push for KiCad : https://github.com/aislerhq
+* Interactive Html Bom : https://github.com/openscopeproject/InteractiveHtmlBom
+* Board2Pdf : https://gitlab.com/dennevi/Board2Pdf
+* Solarized Dark Theme : https://github.com/pointhi/kicad-color-schemes
 
 ## Code :
 
@@ -41,6 +45,7 @@ Bus I2C :
 
 Microchip GPIO expander MCP23017 :
 * https://www.microchip.com/en-us/product/mcp23017
+* https://learn.adafruit.com/using-mcp23008-mcp23017-with-circuitpython?view=all
 * https://www.woolseyworkshop.com/2021/03/18/adding-digital-io-to-your-arduino-part-3-the-mcp23017/
 
 Rotary encoders :

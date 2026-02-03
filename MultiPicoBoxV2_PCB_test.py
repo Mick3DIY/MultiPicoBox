@@ -78,7 +78,7 @@ ledOnboard.direction = Direction.OUTPUT
 # --------------------------------------------------------------
 # Bus I2C Raspberry Pi Pico <-> MCP23017 (Default address '0x20')
 # --------------------------------------------------------------
-# Initialize the I2C bus
+# Initialize the I2C bus (GPIO20, GPIO21)
 i2c = busio.I2C(board.GP21, board.GP20)
 # Use the default address
 mcp = MCP23017(i2c, address=0x20)
@@ -136,20 +136,21 @@ gpab7 = {GPA7, GPB7}
 for gpa in gpab7:
     gpa.switch_to_output()
 #--------------------------------------------------------------------------------------------------
-
-def encoder_manager(encod: IncrementalEncoder, encod_last_pos: int):
+# Encoders manager for reading value
+def encoder_manager(encod: IncrementalEncoder, encod_last_pos: int, debug: bool=False):
     """Encoder manager with one physical push button """
     enc_position = encod.position
     position_change = enc_position - encod_last_pos
-    if position_change > 0:
-        print ("Vi_pin_a ++")
-    elif position_change < 0:
-        print ("Vi_pin_b --")
+    if debug == True:
+        if position_change > 0:
+            print ("Vi_pin_a ++")
+        elif position_change < 0:
+            print ("Vi_pin_b --")
     return enc_position
 # --------------------------------------------------------------
-
+# Blinking LEDs manager, at startup for example
 def blink_all_leds(all_leds=[], duration=0.1):
-    """Blink LEDs (at startup for example)"""
+    """Blink LEDs with minimal duration"""
     for led in all_leds:
         # Check if the object is a LED
         if hasattr(led, "direction"):
@@ -159,13 +160,13 @@ def blink_all_leds(all_leds=[], duration=0.1):
 
 # ------------------------------------------------------------------------------------------------------
 # Check all LEDs
-blink_all_leds((D1, D2, D3, D4, D5, D6, ledOnboard), 0.1) # Mixed animation with all LEDs
+blink_all_leds((D1, D2, D3, D4, D5, D6, ledOnboard))
 while True:
-    # Show encoders value
-    encoderSW5pos = encoder_manager(encoderSW5, encoderSW5pos)
-    encoderSW6pos = encoder_manager(encoderSW6, encoderSW6pos)
-    encoderSW7pos = encoder_manager(encoderSW7, encoderSW7pos)
-    encoderSW8pos = encoder_manager(encoderSW8, encoderSW8pos)
+    # Encoder manager and show value if debug = True
+    encoderSW5pos = encoder_manager(encoderSW5, encoderSW5pos, True)
+    encoderSW6pos = encoder_manager(encoderSW6, encoderSW6pos, True)
+    encoderSW7pos = encoder_manager(encoderSW7, encoderSW7pos, True)
+    encoderSW8pos = encoder_manager(encoderSW8, encoderSW8pos, True)
     # Rotary encoder push buttons (Pico), PULL.UP
     for num, button in enumerate(pbencoders):
         if not button.value:
@@ -183,3 +184,4 @@ while True:
         if not button.value:
             print("Toggle switch #", num, "pressed")
     sleep(0.1)
+
