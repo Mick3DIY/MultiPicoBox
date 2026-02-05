@@ -1,7 +1,7 @@
 ## Code :
 
 * **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
-	- Requirement : [CircuitPython](https://circuitpython.org) version 9, [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx)
+	- Requirement : [CircuitPython](https://circuitpython.org), [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx), [CircuitPython BusDevice](https://github.com/adafruit/Adafruit_CircuitPython_BusDevice) for I2C communication, already builtin with CircuitPython version 9
 	- Code from `MultiPicoBoxV2_PCB_test.py` :
 
 ```python
@@ -193,10 +193,13 @@ while True:
     sleep(0.1)
 ```
 
-*Work In Progress :*
-
 * **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
-	- Requirements :  [CircuitPython](https://circuitpython.org) version 9, [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx), [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
+	- Requirements :  [CircuitPython](https://circuitpython.org), [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx), [CircuitPython BusDevice](https://github.com/adafruit/Adafruit_CircuitPython_BusDevice) for I2C communication, already builtin with CircuitPython version 9, [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
+	- Code from `MultiPicoBoxV2_JoystickXL_test` :
+
+```python
+#Work In Progress :)
+```
 	
-* Useful software for testing the Pico in action (Windows, Linux) :space_invader:
+* Useful software for testing this code in action (Windows, Linux) :space_invader:
 	* AntiMicroX : https://github.com/AntiMicroX/antimicrox
