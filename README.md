@@ -1,6 +1,6 @@
 # MultiPicoBox V2
 
-A simple PCB with Raspberry Pi Pico with some buttons and LEDs for gaming.
+A simple PCB with a Raspberry Pi Pico and some buttons, LEDs for gaming.
 
 This new version have :
 * 1 GPIO expander with a MCP23017 chip (**I2C communication with the Pico**,  with configurable jumpers address)
@@ -10,14 +10,16 @@ This new version have :
 * 4 toggle switches, 3 fixes positions (1-0-2)
 * 6 LEDs for warnings/alerts
 
-The Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 with external libraries :
+This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 with external libraries :
 - Adafruit module [CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx)
 
 - Joystick module [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
 
-The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8 (kicad folder).
+## Printed Circuit Board (PCB) :
 
-First V2 prototype **8 x 8 cm only** (PCB from [AISLER](https://aisler.net) manufacturer) :
+The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8 ([kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder).
+
+First V2 prototype **8 x 8 cm only**, from [AISLER](https://aisler.net) manufacturer :
 
 ![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBoxV2_2025-10-15.png)
 
@@ -32,15 +34,12 @@ Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for 
 ## Code :
 
 * **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
-	- Requirement : [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx)
 
 *Work In Progress :*
 
 * **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
-	- Requirements : [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx), [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
-	
-* Useful software for testing the Pico in action (Windows, Linux) :space_invader:
-	* AntiMicroX : https://github.com/AntiMicroX/antimicrox
+
+Look at the [code](https://github.com/Mick3DIY/MultiPicoBox/tree/main/code) folder for more details.
 
 ## Documentation :
 
@@ -80,4 +79,4 @@ Rotary encoders :
 | SW13,SW14,SW15,SW16|4|SW_SPST||Single Pole Single Throw (SPST) switch |
 | U1|1|MCP23017_I2C|Package_DIP:DIP-28_W7.62mm|16-bit I/O expander, I2C, interrupts, w pull-ups, SPDIP-28 |
 
-Big thanks to Adafruit company, the Python community. :heart: Happy coding & have fun ! :partying_face:
+Big thanks to the [Adafruit](https://www.adafruit.com) company, the [Python](https://www.python.org/) and [MicroPython](https://micropython.org) communities. :heart: Happy coding & have fun ! :partying_face:
