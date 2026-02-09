@@ -45,12 +45,13 @@ Look at the [code](https://github.com/Mick3DIY/MultiPicoBox/tree/main/code) fold
 
 Bus I2C :
 * https://www.i2c-bus.org
-* https://learn.adafruit.com/working-with-i2c-devices?view=all
+* https://learn.adafruit.com/working-with-i2c-devices?view=all :ok_hand:
+* https://learn.adafruit.com/circuitpython-basics-i2c-and-spi?view=all
 * https://learn.sparkfun.com/tutorials/i2c/i2c-at-the-hardware-level
 
 Microchip GPIO expander MCP23017 :
 * https://www.microchip.com/en-us/product/mcp23017
-* https://learn.adafruit.com/using-mcp23008-mcp23017-with-circuitpython?view=all
+* https://learn.adafruit.com/using-mcp23008-mcp23017-with-circuitpython?view=all :ok_hand:
 * https://www.woolseyworkshop.com/2021/03/18/adding-digital-io-to-your-arduino-part-3-the-mcp23017/
 
 Rotary encoders :
