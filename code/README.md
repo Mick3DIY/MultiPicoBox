@@ -53,12 +53,12 @@ from joystick_xl.joystick import Joystick
 from time import sleep
 ```
 
-	- Finally, you will have these files and folders structure :
+Finally, you will have these files and folders structure :
 
 ![](assets/MultiPicoBoxV2_joystickXL_directories.png)
 
-* Useful software for testing this code in action (Windows, Linux) :space_invader:
-	* AntiMicroX : https://github.com/AntiMicroX/antimicrox
+Useful software for testing this code in action (Windows, Linux) :space_invader:
+* AntiMicroX : https://github.com/AntiMicroX/antimicrox
 
 ![](assets/MultiPicoBoxV2_joystickXL_AntiMicroX.png)
 
