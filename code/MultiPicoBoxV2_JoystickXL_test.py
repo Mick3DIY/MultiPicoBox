@@ -156,6 +156,9 @@ def encoder_manager(encod: IncrementalEncoder, vi_pin_a: VirtualInput, vi_pin_b:
         vi_pin_b.source_value = True
         if debug == True:
             print ("Vi_pin_b --")
+    else:
+        vi_pin_a.source_value = False
+        vi_pin_b.source_value = False
     return enc_position
 # --------------------------------------------------------------
 # Blinking LEDs manager, at startup for example
@@ -203,16 +206,6 @@ blink_all_leds((D1, D2, D3, D4, D5, D6, ledOnboard, 0.3))
 ledOnboard.value = True
 try:
     while True:
-        # Virtual inputs release for new impulses (Rotary encoders)
-        js.button[1].source_value = False
-        js.button[2].source_value = False
-        js.button[4].source_value = False
-        js.button[5].source_value = False
-        js.button[7].source_value = False
-        js.button[8].source_value = False
-        js.button[10].source_value = False
-        js.button[11].source_value = False
-
         if DEBUG == True:
             # Rotary encoder push buttons (Pico), PULL.UP
             for num, button in enumerate(pbencoders):
@@ -265,7 +258,6 @@ try:
         encoderSW8pos = encoder_manager(encoderSW8, js.button[10], js.button[11], encoderSW8pos, DEBUG)
         
         js.update()
-        sleep(0.05) # Important !
 except (Exception, KeyboardInterrupt) as err:
     print(err)
 finally:
