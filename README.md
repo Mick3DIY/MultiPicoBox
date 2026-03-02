@@ -35,8 +35,6 @@ Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for 
 
 * **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
 
-*Work In Progress :*
-
 * **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
 
 Look at the [code](https://github.com/Mick3DIY/MultiPicoBox/tree/main/code) folder for more details.
@@ -57,7 +55,8 @@ Microchip GPIO expander MCP23017 :
 Rotary encoders :
 * https://learn.adafruit.com/rotary-encoder?view=all
 * https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/
-* ALPS EC11 series : https://tech.alpsalpine.com/e/products/category/encorders/sub/01/series/ec11e/
+* Alps EC11E series : https://tech.alpsalpine.com/e/products/category/encorders/sub/01/series/ec11e/
+* Bourns PEC11R series : https://www.bourns.com/products/encoders/contacting-encoders
 
 ## Bill Of Materials (BOM) :
 
