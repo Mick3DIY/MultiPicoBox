@@ -31,6 +31,12 @@ Some useful plugins for KiCad :
 
 Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for the PCB :beers:
 
+## 3D Enclosure :
+
+The first enclosure prototype made with [FreeCad](https://www.freecad.org) version 1. *Work is progress !*
+
+![](assets/MultiPicoBoxV2_Encl_WIP_2026-02-17.png)
+
 ## Code :
 
 * **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
