@@ -68,4 +68,6 @@ Rotary encoders :
 
 The BOM and an interactive BOM (HTML version) for components assembly are in the [kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder.
 
-Big thanks to the [Adafruit](https://www.adafruit.com) company, the [Python](https://www.python.org/) and [MicroPython](https://micropython.org) communities. :heart: Happy coding & have fun ! :partying_face:
+
+> [!NOTE]
+> Big thanks to the [Adafruit](https://www.adafruit.com) company, the [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org) communities. :heart: Happy coding & have fun ! :partying_face:
