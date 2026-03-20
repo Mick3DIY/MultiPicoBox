@@ -1,6 +1,6 @@
-## Code :
+## Code (MultiPicoBoxV2_PCB_test) :
 
-* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
+* MultiPicoBoxV2_PCB_test is for **testing the PCB** with all external components
 	- Requirements : [CircuitPython](https://circuitpython.org), [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx), [CircuitPython BusDevice](https://github.com/adafruit/Adafruit_CircuitPython_BusDevice) for I2C communication (already builtin with CircuitPython version 9)
 	- Imports from `MultiPicoBoxV2_PCB_test.py` :
 
@@ -22,7 +22,9 @@ from adafruit_mcp230xx.mcp23017 import MCP23017
 from time import sleep
 ```
 
-* **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
+## Code (MultiPicoBoxV2_JoystickXL_test) :
+
+* MultiPicoBoxV2_JoystickXL_test is for **testing everything like a gamepad** :joystick:
 	- Requirements :  [CircuitPython](https://circuitpython.org), [Adafruit_CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx), [CircuitPython BusDevice](https://github.com/adafruit/Adafruit_CircuitPython_BusDevice) for I2C communication (already builtin with CircuitPython version 9), [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
 	- Read carefully these chapters from JoystickXL documentation : requirements, limitations, host OS/Software compatibilities in https://circuitpython-joystickxl.readthedocs.io/en/latest/
 	- After verifying compatibilities copy the file `boot.py` in the Pico board.

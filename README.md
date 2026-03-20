@@ -10,7 +10,7 @@ This new version have :
 * 4 toggle switches, 3 fixes positions (1-0-2)
 * 6 LEDs for warnings/alerts
 
-This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 with external libraries :
+This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9.x with external libraries :
 - Adafruit module [CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx)
 
 - Joystick module [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
@@ -19,13 +19,13 @@ This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9 
 
 The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8 ([kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder).
 
-First V2 prototype **8 x 8 cm only**, from [AISLER](https://aisler.net) manufacturer :
+First V2 prototype (8 x 8 cm only) from [AISLER](https://aisler.net) manufacturer :
 
 ![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBoxV2_2025-10-15.png)
 
 Some useful plugins for KiCad :
 * AISLER Push for KiCad : https://github.com/aislerhq
-* Interactive Html Bom : https://github.com/openscopeproject/InteractiveHtmlBom
+* Interactive HTML BOM : https://github.com/openscopeproject/InteractiveHtmlBom
 * Board2Pdf : https://gitlab.com/dennevi/Board2Pdf
 * Solarized Dark Theme : https://github.com/pointhi/kicad-color-schemes
 
@@ -33,9 +33,9 @@ Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for 
 
 ## 3D Enclosure :
 
-The first enclosure prototype made with [FreeCad](https://www.freecad.org) version 1. *Work is progress !*
+The first enclosure prototype made with [FreeCad](https://www.freecad.org) version 1.0.x. *Work is progress !*
 
-![](assets/MultiPicoBoxV2_Encl_WIP_2026-02-17.png)
+![](assets/MultiPicoBoxV2_Encl_WIP_2026-03-20.png)
 
 ## Code :
 
@@ -70,4 +70,6 @@ The BOM and an interactive BOM (HTML version) for components assembly are in the
 
 
 > [!NOTE]
-> Big thanks to the [Adafruit](https://www.adafruit.com) company, the [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org) communities. :heart: Happy coding & have fun ! :partying_face:
+> Big thanks to the [Adafruit](https://www.adafruit.com) company, to all [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org) communities. :heart: 
+> 
+>Happy coding & have fun ! :partying_face:
