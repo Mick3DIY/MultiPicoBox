@@ -66,23 +66,6 @@ Rotary encoders :
 
 ## Bill Of Materials (BOM) :
 
-| Reference  | Qty | Value | Footprint | Description |
-| :----- | :-----: | :----- | :----- | :----- |
-| C1|1|10uF|Capacitor_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm|Unpolarized capacitor, small symbol |
-| C2|1|0.1uF|Capacitor_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm|Unpolarized capacitor, small symbol |
-| D1,D2,D3,D4,D5,D6|6|LED||Light emitting diode |
-| J1,J2,J3,J4|4|Conn_01x03_Pin|Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical|Generic connector, single row, 01x03 |
-| J5,J6,J7,J8|4|Conn_01x05_Pin|Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical|Generic connector, single row, 01x05 |
-| J9 -> J22|14|Conn_01x02_Pin|Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical|Generic connector, single row, 01x02 |
-| J26,J27|2|Conn_01x20_Socket|Connector_PinSocket_2.54mm:PinSocket_1x20_P2.54mm_Vertical|Generic connector, single row, 01x20 |
-| J28 (I2C) |1|Conn_02x03_Top_Bottom|MuliPicoBox_V2:PinHeader_2x03_P2.54mm_Vertical_Re-Order-Pins|Generic connector, double row, 02x03 |
-| R1,R2,R3,R4|4|330|Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical| |
-| R5,R6,R7,R8,R9,R10|6|270|Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical| |
-| R11 -> R18|8|10K|Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical| |
-| SW1,SW2,SW3,SW4|4|SW_SPDT_MSM||Switch, single pole double throw, center OFF position |
-| SW5,SW6,SW7,SW8|4|RotaryEncoder_Switch||Rotary encoder, dual channel, incremental quadrate outputs, with switch |
-| SW9,SW10,SW11,SW12|4|SW_Push||Push button switch, generic, two pins |
-| SW13,SW14,SW15,SW16|4|SW_SPST||Single Pole Single Throw (SPST) switch |
-| U1|1|MCP23017_I2C|Package_DIP:DIP-28_W7.62mm|16-bit I/O expander, I2C, interrupts, w pull-ups, SPDIP-28 |
+The BOM and an interactive BOM (HTML version) for components assembly are in the [kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder.
 
 Big thanks to the [Adafruit](https://www.adafruit.com) company, the [Python](https://www.python.org/) and [MicroPython](https://micropython.org) communities. :heart: Happy coding & have fun ! :partying_face:
