@@ -118,7 +118,7 @@ class MultiPicoBoxV2:
         """Create all objects in the board"""
 
         # Showing messages for debug
-        self._debug = False
+        self._debug_ = False
         # --------------------------------------------------------------
         # Rotary encoders with push button (Pico)
         # --------------------------------------------------------------
