@@ -70,6 +70,6 @@ The BOM and an interactive BOM (HTML version) for components assembly are in the
 
 
 > [!NOTE]
-> Big thanks to the [Adafruit](https://www.adafruit.com) company, to all [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org) communities. :heart: 
-> 
->Happy coding & have fun ! :partying_face:
+> Big thanks to the [Adafruit](https://www.adafruit.com) company, to all [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org) communities. :heart:
+
+Happy coding & have fun ! :partying_face:
