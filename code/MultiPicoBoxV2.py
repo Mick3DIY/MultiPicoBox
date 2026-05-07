@@ -379,8 +379,13 @@ class MultiPicoBoxV2:
         """Switch on the onboard LED"""
         self._ledOnboard.value = True
 
+    def switch_on_leds(self):
+        """Switch ON all LEDs onboard"""
+        for led in self._get_all_leds(self):
+            led.value = True
+
     def switch_off_leds(self) -> None:
-        """Switch off all LEDs onboard"""
+        """Switch OFF all LEDs onboard"""
         for led in self._get_all_leds(self):
             led.value = False
 

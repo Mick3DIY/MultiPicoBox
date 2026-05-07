@@ -13,7 +13,7 @@ This new version have :
 This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9.x with external libraries :
 - Adafruit module [CircuitPython_MCP230xx](https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx)
 
-- Joystick module [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
+- JoystickXL module [CircuitPython_JoystickXL](https://github.com/fasteddy516/CircuitPython_JoystickXL)
 
 ## Printed Circuit Board (PCB) :
 
@@ -33,7 +33,7 @@ Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for 
 
 ## 3D Enclosure :
 
-The first enclosure prototype made with [FreeCad](https://www.freecad.org) version 1.0.x. *Work is progress !*
+The first enclosure prototype is made with [FreeCad](https://www.freecad.org) version 1.0.x. *Work is progress !*
 
 ![](assets/MultiPicoBoxV2_Encl_WIP_2026-03-20.png)
 
