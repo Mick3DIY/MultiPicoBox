@@ -1,3 +1,8 @@
+## Common code (*_PCB_test, *_JoystickXL_test)
+
+If you don't see the CIRCUITPY drive (after installing one of code section below), press and hold the push button SW9 and power on the Pico to expose this drive for editing, otherwise the USB drive is disabled.
+(You can also disable this functionality by commenting the last "if-else" test in the boot code file : `boot_PCB_test.py` or `boot_JoystickXL_test.py`)
+
 ## Code (MultiPicoBoxV2_PCB_test) :
 
 * MultiPicoBoxV2_PCB_test is for **testing the PCB** with all external components
