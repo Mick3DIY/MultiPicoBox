@@ -24,7 +24,7 @@ First V2 prototype (8 x 8 cm only) from [AISLER](https://aisler.net) manufacture
 ![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBoxV2_2025-10-15.png)
 
 Some useful plugins for KiCad :
-* AISLER Push for KiCad : https://github.com/aislerhq
+* AISLER Push for KiCad : https://github.com/aislerhq (with AISLER repository to always get the latest updates)
 * Interactive HTML BOM : https://github.com/openscopeproject/InteractiveHtmlBom
 * Board2Pdf : https://gitlab.com/dennevi/Board2Pdf
 * Solarized Dark Theme : https://github.com/pointhi/kicad-color-schemes
