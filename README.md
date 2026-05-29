@@ -1,6 +1,6 @@
 # MultiPicoBox V2
 
-A simple PCB with a Raspberry Pi Pico and some buttons, LEDs for gaming.
+A simple PCB with a Raspberry Pi Pico and some buttons, LEDs for gaming...
 
 This new version have :
 * 1 GPIO expander with a MCP23017 chip (**I2C communication with the Pico**,  with configurable jumpers address)
@@ -17,11 +17,11 @@ This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9.
 
 ## Printed Circuit Board (PCB) :
 
-The schematic and PCB are made with [KiCad](https://www.kicad.org) version 8 ([kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder).
+The schematic and PCB are made with [KiCad](https://www.kicad.org) version 9 ([kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder).
 
 First V2 prototype (8 x 8 cm only) from [AISLER](https://aisler.net) manufacturer :
 
-![MultiPicoBox_V2_2025-10-15](assets/MultiPicoBoxV2_2025-10-15.png)
+![MultiPicoBoxV2_2026-05-22](assets/MultiPicoBoxV2_2026-05-22.png)
 
 Some useful plugins for KiCad :
 * AISLER Push for KiCad : https://github.com/aislerhq (with AISLER repository to always get the latest updates)
@@ -39,7 +39,7 @@ The first enclosure prototype is made with [FreeCad](https://www.freecad.org) ve
 
 ## Code :
 
-* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components
+* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components :wrench:
 
 * **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
 
