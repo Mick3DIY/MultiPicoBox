@@ -26,11 +26,11 @@ You can also disable this functionality by commenting the last "if-else" test in
 
 Finally, you will have these files and folders structure :
 
-![](assets/MultiPicoBoxV2_joystickXL_directories.png)
+![MultiPicoBoxV2_joystickXL_directories](assets/MultiPicoBoxV2_joystickXL_directories.png)
 
 Useful software for testing this code in action (Windows, Linux) :space_invader:
 * AntiMicroX : https://github.com/AntiMicroX/antimicrox
 
-![](assets/MultiPicoBoxV2_joystickXL_AntiMicroX.png)
+![MultiPicoBoxV2_joystickXL_AntiMicroX](assets/MultiPicoBoxV2_joystickXL_AntiMicroX.png)
 
 Happy coding & have fun ! :partying_face:

@@ -35,7 +35,7 @@ Many thanks to [@Kochise](https://github.com/kochise) for his help and tips for 
 
 The first enclosure prototype is made with [FreeCad](https://www.freecad.org) version 1.0.x. *Work is progress !*
 
-![](assets/MultiPicoBoxV2_Encl_WIP_2026-03-20.png)
+![MultiPicoBoxV2_Encl_WIP_2026-03-20](assets/MultiPicoBoxV2_Encl_WIP_2026-03-20.png)
 
 ## Code :
 

@@ -1,10 +1,10 @@
 ## Schematic :
 
-![](assets/MultiPicoBoxV2_Schematic.png)
+![MultiPicoBoxV2_Schematic](assets/MultiPicoBoxV2_Schematic.png)
 
-### Table for I2C adresses (default is '0x20') :
+### Table for I2C addresses (default is '0x20') :
 
-| Adresses | A0 | A1 | A2 | Adresses | A0 | A1 | A2 |
+| Addresses | A0 | A1 | A2 | Addresses | A0 | A1 | A2 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
 | 0x20 | 0 | 0 | 0 | 0x24 | 0 | 0 | 1 |
 | 0x21 | 1 | 0 | 0 | 0x25 | 1 | 0 | 1 |
