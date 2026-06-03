@@ -13,7 +13,7 @@ import busio
 from digitalio import DigitalInOut, Direction, Pull
 
 # https://docs.circuitpython.org/en/latest/shared-bindings/rotaryio/index.html
-import rotaryio
+from rotaryio import IncrementalEncoder
 
 # https://docs.circuitpython.org/projects/mcp230xx/en/latest/
 from adafruit_mcp230xx.mcp23017 import MCP23017
@@ -27,7 +27,7 @@ class EncoderManager:
 
     def __init__(self, pin_a, pin_b, pin_sw, name) -> None:
         """Encoder pin_a, pin_b, pin_switch, name"""
-        self._encoder = rotaryio.IncrementalEncoder(pin_a, pin_b)
+        self._encoder = IncrementalEncoder(pin_a, pin_b)
         self._button = DigitalInOut(pin_sw)
         self._button.direction = Direction.INPUT
         self._button.pull = Pull.UP
@@ -94,7 +94,7 @@ class MCPManager:
         # Use the default address '0x20'
         self._mcp = MCP23017(_i2c, address)
 
-    def get_toggle(self, pin_1, pin_3, name) -> List[DigitalInOut, DigitalInOut, str]:
+    def get_toggle(self, pin_1, pin_3, name) -> list[DigitalInOut, DigitalInOut, str]:
         """Toggle switch pin_1, pin_3, name"""
         _toggleSwitch = [self._mcp.get_pin(pin_1), self._mcp.get_pin(pin_3)]
         for switch in _toggleSwitch:
@@ -347,24 +347,24 @@ class MultiPicoBoxV2:
             print(f"Rotary encoder ({_enc_position}) pin_b -- : {encoder_name}")
         return _enc_position
 
-    def get_all_rot_encoders(self) -> List[EncoderManager]:
+    def get_all_rot_encoders(self) -> list[EncoderManager]:
         """Return all rotary encoders"""
         return (self._sw5, self._sw6, self._sw7, self._sw8)
 
-    def get_all_push_buttons(self) -> List[ButtonManager]:
+    def get_all_push_buttons(self) -> list[ButtonManager]:
         """Return all push buttons"""
         return (self._sw9, self._sw10, self._sw11, self._sw12)
 
-    def get_all_mom_switches(self) -> List[ButtonManager]:
+    def get_all_mom_switches(self) -> list[ButtonManager]:
         """Return all momentary switches"""
         return (self._sw13, self._sw14, self._sw15, self._sw16)
 
-    def get_all_tog_switches(self) -> List[[DigitalInOut, DigitalInOut]]:
+    def get_all_tog_switches(self) -> list[[DigitalInOut, DigitalInOut]]:
         """Return all toggle switches"""
         return (self._tssw1, self._tssw2, self._tssw3, self._tssw4)
 
     @staticmethod
-    def _get_all_leds(self) -> List[DigitalInOut]:
+    def _get_all_leds(self) -> list[DigitalInOut]:
         """Return all LEDs in the board"""
         return (self._d1, self._d2, self._d3, self._d4, self._d5, self._d6, self._ledOnboard)
 
