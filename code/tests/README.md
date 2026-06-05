@@ -35,7 +35,6 @@ deactivate
 6. Delete the virtual environnement (from 'tests' folder)
 
 ```shell
-cd ..
 rm -rf .venv
 ```
 

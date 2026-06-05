@@ -13,7 +13,7 @@ def test_EncoderManager():
     f_encoder = MagicMock()
     my_encoder = EncoderManager("PIN_A", "PIN_B", "PIN_SW", "test_encoder_name")
     # Encoder default position
-    assert (my_encoder.get_position() == 0), "Encoder position is not zero by default !"
+    assert my_encoder.get_position() == 0, "Encoder position is not zero by default !"
     # Encoder positions
     my_encoder.set_last_position(5)
     assert my_encoder.get_last_position() == 5, "Encoder last position is not correct !"
@@ -22,8 +22,32 @@ def test_EncoderManager():
     f_button = my_encoder.get_button()
     f_button.value = False
     # Encoder push button
-    assert (my_encoder.get_button().value == False), "Encoder push button is not False by default !"
+    assert my_encoder.get_button().value == False, "Encoder push button is not False by default !"
     # Encoder name in uppercase
     assert my_encoder.get_name() == "TEST_ENCODER_NAME", "Encoder name is not correct !"
     # Encoder __str__ method
     assert str(my_encoder) == "Encoder: TEST_ENCODER_NAME"
+
+
+def test_ButtonManager():
+    """Tests for the push buttons or momentary switches sub-class"""
+
+    # Fake button
+    f_button = MagicMock()
+    my_button = ButtonManager("PIN_P", "test_button_name")
+    # Push button
+    assert my_button.get_button().value == False, "Push button is not False by default !"
+    # Push button in uppercase
+    assert my_button.get_name() == "TEST_BUTTON_NAME", "Push button name is not correct !"
+    # Push button __str__ method
+    assert str(my_button) == "Push button/switch: TEST_BUTTON_NAME"
+
+
+def test_MCPManager():
+    """Tests for the MCP23017 sub-class"""
+    pass
+
+
+def test_MultiPicoBoxV2():
+    """Tests for the main class"""
+    pass
