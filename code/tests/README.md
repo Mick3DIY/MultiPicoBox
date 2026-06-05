@@ -1,6 +1,6 @@
 # MultiPicoBoxV2 Python unit tests documentation (Linux)
 
-1. Create the virtual environnement, only one time (in 'code' folder)
+1. Create the virtual environnement, only one time (in 'tests' folder)
 
 ```shell
 python3 -m venv .venv
@@ -17,14 +17,13 @@ source .venv/bin/activate
 3. Install project dependencies
 
 ```shell
-pip install --requirement tests/requirements.txt
+pip install --requirement requirements.txt
 ```
 
 4. Run the project test
 
 ```shell
-cd tests
-pytest
+pytest -v
 ```
 
 5. Deactivate the virtual environnement
@@ -33,7 +32,7 @@ pytest
 deactivate
 ```
 
-6. Delete the virtual environnement (from 'code' folder)
+6. Delete the virtual environnement (from 'tests' folder)
 
 ```shell
 cd ..

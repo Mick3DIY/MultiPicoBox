@@ -28,6 +28,7 @@ class EncoderManager:
     def __init__(self, pin_a, pin_b, pin_sw, name) -> None:
         """Encoder pin_a, pin_b, pin_switch, name"""
         self._encoder = IncrementalEncoder(pin_a, pin_b)
+        self._encoder.position = 0
         self._button = DigitalInOut(pin_sw)
         self._button.direction = Direction.INPUT
         self._button.pull = Pull.UP

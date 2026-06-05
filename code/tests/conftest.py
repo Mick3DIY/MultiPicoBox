@@ -20,3 +20,7 @@ pytest_plugins = ["circuitpython_mocks.fixtures"]
 mock_rotaryio = MagicMock()
 mock_rotaryio.IncrementalEncoder = MagicMock()
 sys.modules["rotaryio"] = mock_rotaryio
+# Manual mocking for the digitalio module
+mock_digitalio = MagicMock()
+mock_digitalio.DigitalInOut = MagicMock()
+sys.modules["digitalio"] = mock_digitalio
