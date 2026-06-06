@@ -15,12 +15,26 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 # Manual mocking for the I2C, SPI, UART, DigitalInOut
 pytest_plugins = ["circuitpython_mocks.fixtures"]
 
+# https://docs.circuitpython.org/en/latest/shared-bindings/busio/
+# https://docs.circuitpython.org/en/latest/shared-bindings/digitalio/index.html
+# Manual mocking for the busio, digitalio modules
+mock_busio = MagicMock()
+mock_digitalio = MagicMock()
+mock_digitalio.Direction = MagicMock(INPUT="INPUT", OUTPUT="OUTPUT")
+mock_digitalio.Pull = MagicMock(UP="UP", DOWN="DOWN", NONE="NONE")
+sys.modules["busio"] = mock_busio
+sys.modules["digitalio"] = mock_digitalio
+
 # https://docs.circuitpython.org/en/latest/shared-bindings/rotaryio/index.htm
 # Manual mocking for the rotaryio module
 mock_rotaryio = MagicMock()
 mock_rotaryio.IncrementalEncoder = MagicMock()
 sys.modules["rotaryio"] = mock_rotaryio
-# Manual mocking for the digitalio module
-mock_digitalio = MagicMock()
-mock_digitalio.DigitalInOut = MagicMock()
-sys.modules["digitalio"] = mock_digitalio
+
+# https://docs.circuitpython.org/projects/mcp230xx/en/latest/
+# Manual mocking for the MCP23017
+mock_mcpmodule = MagicMock()
+mock_mcpclass = MagicMock()
+mock_mcpmodule.MCP23017 = mock_mcpclass
+sys.modules["adafruit_mcp230xx"] = mock_mcpmodule
+sys.modules["adafruit_mcp230xx.mcp23017"] = mock_mcpmodule
