@@ -20,10 +20,10 @@ source .venv/bin/activate
 pip install --requirement requirements.txt
 ```
 
-4. Run the project test
+4. Run the project test with some details
 
 ```shell
-pytest -v
+pytest -rpP
 ```
 
 5. Deactivate the virtual environnement

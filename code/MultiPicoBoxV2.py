@@ -90,10 +90,22 @@ class MCPManager:
 
     def __init__(self, pin_scl, pin_sda, address=0x20) -> None:
         """MCP23017 serial_clock_pin, serial_data_pin, I2C address"""
-        # Initialize the I2C bus
-        _i2c = busio.I2C(pin_scl, pin_sda)
-        # Use the default address '0x20'
-        self._mcp = MCP23017(_i2c, address)
+
+        try:
+            # Initialize the I2C bus
+            _i2c = busio.I2C(pin_scl, pin_sda)
+            # Initialize the MCP23017 communication
+            self._address = hex(address)
+            self._mcp = MCP23017(_i2c, address)
+        except Exception:
+            self._address = None
+            print(f"No MCP23017 found at {hex(address)}")
+        finally:
+            _i2c.unlock()
+
+    def get_address(self) -> str:
+        """MCP23017 actual I2C address"""
+        return f"{self._address}"
 
     def get_toggle(self, pin_1, pin_3, name) -> list[DigitalInOut, DigitalInOut, str]:
         """Toggle switch pin_1, pin_3, name"""
@@ -109,6 +121,10 @@ class MCPManager:
         _led = self._mcp.get_pin(pin_2)
         _led.switch_to_output()
         return _led
+
+    def __str__(self):
+        """MCP23017 user-friendly detail"""
+        return f"MCP23017 address: {self._address}"
 
 
 # -----------------------------------------------------------------------------

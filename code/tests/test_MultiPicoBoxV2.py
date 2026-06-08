@@ -9,7 +9,7 @@ from MultiPicoBoxV2 import *
 def test_EncoderManager():
     """Tests for the encoders sub-class"""
 
-    # Fake encoder
+    # Fake encoder with fake pins
     my_encoder = EncoderManager(90, 91, 92, "test_encoder_name")
     # Encoder
     assert my_encoder.get_button().direction == "INPUT"
@@ -35,7 +35,7 @@ def test_EncoderManager():
 def test_ButtonManager():
     """Tests for the push buttons or momentary switches sub-class"""
 
-    # Fake button
+    # Fake button with fake pin
     my_button = ButtonManager(93, "test_button_name")
     # Push button
     assert my_button.get_button().direction == "INPUT"
@@ -50,17 +50,22 @@ def test_ButtonManager():
 def test_MCPManager():
     """Tests for the MCP23017 sub-class"""
 
-    # Fake MCP
-    my_mcp = MCPManager(94, 95)  # SCL, SDA
+    # Fake MCP with fake pins
+    I2C_address = 0x20
+    my_mcp = MCPManager(94, 95)
+    # I2C default address
+    assert my_mcp.get_address() == hex(I2C_address)
     # Toggle switche
     toggle = my_mcp.get_toggle(96, 97, "test_mcp_name")
     assert toggle[0].direction == "INPUT"
     assert toggle[1].pull == "UP"
     # Toggle name in uppercase
     assert toggle[2] == "TEST_MCP_NAME"
-    # LEDs
-    led = my_mcp.get_led(96)
+    # LED with fake pin
+    led = my_mcp.get_led(98)
     led.switch_to_output.assert_called_once()
+    # MCP __str__ method
+    assert str(my_mcp) == f"MCP23017 address: {hex(I2C_address)}"
 
 
 def test_MultiPicoBoxV2():
