@@ -55,19 +55,42 @@ def test_MCPManager():
     my_mcp = MCPManager(94, 95)
     # I2C default address
     assert my_mcp.get_address() == hex(I2C_address)
-    # Toggle switche
-    toggle = my_mcp.get_toggle(96, 97, "test_mcp_name")
-    assert toggle[0].direction == "INPUT"
-    assert toggle[1].pull == "UP"
+    # Toggle switche (2x DigitalInOut)
+    toggle = my_mcp.get_toggle(1, 2, "test_mcp_name")
+    for i in range(2):
+        assert toggle[i].direction == "INPUT"
+        assert toggle[i].pull == "UP"
+        assert toggle[i].value == True
     # Toggle name in uppercase
     assert toggle[2] == "TEST_MCP_NAME"
     # LED with fake pin
-    led = my_mcp.get_led(98)
-    led.switch_to_output.assert_called_once()
+    led = my_mcp.get_led(3)
+    assert led.direction == "OUTPUT"
+    assert led.value == False
     # MCP __str__ method
     assert str(my_mcp) == f"MCP23017 address: {hex(I2C_address)}"
 
 
 def test_MultiPicoBoxV2():
     """Tests for the main class"""
-    pass
+
+    # Fake MultiPicoBox
+    my_box = MultiPicoBoxV2()
+    # Check rotary encoders
+    assert len(my_box.rotary_encoders) == len(my_box.get_all_rot_encoders())
+    assert all(isinstance(item, EncoderManager) for item in my_box.get_all_rot_encoders())
+    # Check push buttons
+    assert len(my_box.push_buttons) == len(my_box.get_all_push_buttons())
+    assert all(isinstance(item, ButtonManager) for item in my_box.get_all_push_buttons())
+    # Check momentary switches
+    assert len(my_box.moment_switches) == len(my_box.get_all_mom_switches())
+    assert all(isinstance(item, ButtonManager) for item in my_box.get_all_mom_switches())
+    # Check toggle switches (8 switches -> 4 toggles switches)
+    assert len(my_box.toggle_switches) / 2 == len(my_box.get_all_tog_switches())
+    for toggles in my_box.get_all_tog_switches():
+        # Objects <adafruit_mcp230xx.digital_inout.DigitalInOut>
+        for i in range(2):
+            assert toggles[i].direction == "INPUT"
+            assert toggles[i].pull == "UP"
+            assert toggles[i].value == True
+        assert isinstance(toggles[2], str)

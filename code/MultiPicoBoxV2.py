@@ -4,6 +4,8 @@
 # Documentation, tutorials : https://projects.raspberrypi.org
 # CircuitPython : https://learn.adafruit.com/welcome-to-circuitpython
 # Thonny IDE : https://thonny.org
+
+# https://docs.circuitpython.org/en/latest/shared-bindings/board/
 import board
 
 # https://docs.circuitpython.org/en/latest/shared-bindings/busio/
@@ -376,7 +378,7 @@ class MultiPicoBoxV2:
         """Return all momentary switches"""
         return (self._sw13, self._sw14, self._sw15, self._sw16)
 
-    def get_all_tog_switches(self) -> list[[DigitalInOut, DigitalInOut]]:
+    def get_all_tog_switches(self) -> list[DigitalInOut, DigitalInOut, str]:
         """Return all toggle switches"""
         return (self._tssw1, self._tssw2, self._tssw3, self._tssw4)
 
@@ -392,11 +394,11 @@ class MultiPicoBoxV2:
             sleep(duration)
             led.value = False
 
-    def switch_on_ledOnboard(self):
+    def switch_on_ledOnboard(self) -> None:
         """Switch on the onboard LED"""
         self._ledOnboard.value = True
 
-    def switch_on_leds(self):
+    def switch_on_leds(self) -> None:
         """Switch ON all LEDs onboard"""
         for led in self._get_all_leds(self):
             led.value = True
