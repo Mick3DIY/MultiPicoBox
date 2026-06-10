@@ -11,10 +11,6 @@ from unittest.mock import MagicMock
 # Add parent 'tests' folder to PYTHONPATH
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-# https://circuitpython-mocks.readthedocs.io/en/latest/
-# Manual mocking for the I2C, SPI, UART, DigitalInOut
-pytest_plugins = ["circuitpython_mocks.fixtures"]
-
 # https://docs.circuitpython.org/en/latest/shared-bindings/board/#module-board
 # Manual mocking for the board
 mock_board = MagicMock()
