@@ -6,7 +6,7 @@
 python3 -m venv .venv
 ```
 
-_'.venv' is the default folder name_
+_The second parameter '.venv' is the default folder name_
 
 2. Activate the virtual environnement
 
@@ -25,6 +25,12 @@ pip install --requirement requirements.txt
 ```shell
 pytest -rpP
 ```
+
+    4.1 Run the tests covering (optional)
+
+    ```shell
+    pytest --cov
+    ```
 
 5. Deactivate the virtual environnement
 

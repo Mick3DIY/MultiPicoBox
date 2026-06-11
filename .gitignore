@@ -2,5 +2,8 @@
 __pycache__/
 .pytest_cache
 
+# Pytest-cov-specific files
+.coverage
+
 # Virtual environment-specific files
 .venv/
