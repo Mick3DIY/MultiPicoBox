@@ -1,5 +1,6 @@
 # MultiPicoBoxV2 unit tests (pytest)
 # GitHub project : https://github.com/Mick3DIY/MultiPicoBox
+# Pytest documentation : https://docs.pytest.org
 
 import pytest
 from unittest.mock import MagicMock

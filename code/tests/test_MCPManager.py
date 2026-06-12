@@ -1,5 +1,6 @@
 # MultiPicoBoxV2 unit tests (pytest)
 # GitHub project : https://github.com/Mick3DIY/MultiPicoBox
+# Pytest documentation : https://docs.pytest.org
 
 import pytest
 import unittest
@@ -12,7 +13,7 @@ from MultiPicoBoxV2 import *
 class test_MCPManager(unittest.TestCase):
 
     def test_init_success(self, m_i2c_class, m_mcp_class):
-        """Tests for the MCPManager sub-class"""
+        """Tests where the MCP is found, with default address"""
 
         m_i2c_instance = MagicMock()
         m_i2c_class.return_value = m_i2c_instance
@@ -28,7 +29,7 @@ class test_MCPManager(unittest.TestCase):
         assert my_mcp._mcp == m_mcp_instance
 
     def test_init_failure(self, m_i2c_class, m_mcp_class):
-        """Tests where the MCP23017 is not found (Exception)"""
+        """Tests where the MCP is not found (Exception)"""
 
         m_i2c_instance = MagicMock()
         m_i2c_class.return_value = m_i2c_instance
@@ -40,7 +41,7 @@ class test_MCPManager(unittest.TestCase):
         m_i2c_instance.unlock.assert_called_once()
 
     def test_get_address(self, m_i2c_class, m_mcp_class):
-        """Tests MCP23017 I2C address"""
+        """Tests the MCP I2C address"""
 
         m_i2c_instance = MagicMock()
         m_i2c_class.return_value = m_i2c_instance
@@ -52,12 +53,39 @@ class test_MCPManager(unittest.TestCase):
         assert my_mcp.get_address() == hex(I2C_address)
 
     def test_get_toggle(self, m_i2c_class, m_mcp_class):
-        """Tests Toggle switch (2x DigitalInOut)"""
-        pass
+        """Tests Toggle switch (2x DigitalInOut) from the MCP"""
+        
+        m_i2c_instance = MagicMock()
+        m_i2c_class.return_value = m_i2c_instance
+        m_mcp_instance = MagicMock()
+        m_mcp_class.return_value = m_mcp_instance
+        m_pin1 = m_pin3 = MagicMock()
+        m_mcp_instance.get_pin.side_effect = [m_pin1, m_pin3]
+        # Fake MCP with fake pins
+        my_mcp = MCPManager(m_pin1, m_pin3)
+        toggle = my_mcp.get_toggle(1, 2, "test_mcp_name")
+        assert len(toggle) == 3 # DigitalInOut, DigitalInOut, str
+        for i in range(2):
+            assert toggle[i].direction == "INPUT"
+            assert toggle[i].pull == "UP"
+         # Toggle name in uppercase
+        assert toggle[2] == "TEST_MCP_NAME"
+
 
     def test_get_led(self, m_i2c_class, m_mcp_class):
-        """Tests LEDs"""
-        pass
+        """Tests LEDs from the MCP"""
+        m_i2c_instance = MagicMock()
+        m_i2c_class.return_value = m_i2c_instance
+        m_mcp_instance = MagicMock()
+        m_mcp_class.return_value = m_mcp_instance
+        m_led = MagicMock()
+        m_mcp_instance.get_pin.return_value = m_led
+        my_mcp = MCPManager(94, 95)
+        # LED with fake pin
+        led = my_mcp.get_led(3)
+        assert led.direction == "OUTPUT"
+        assert led.value == False
+        
 
     def test_str_method(self, m_i2c_class, m_mcp_class):
         """Tests MCP __str__ method"""
