@@ -31,16 +31,3 @@ sys.modules["digitalio"] = mock_digitalio
 mock_rotaryio = MagicMock()
 mock_rotaryio.IncrementalEncoder = MagicMock()
 sys.modules["rotaryio"] = mock_rotaryio
-
-# https://docs.circuitpython.org/projects/mcp230xx/en/latest/
-# Manual mocking for the MCP23017
-mock_mcpmodule = MagicMock()
-mock_mcpclass = MagicMock()
-mock_mcpmodule.MCP23017 = mock_mcpclass
-# https://docs.circuitpython.org/projects/mcp230xx/en/latest/api.html#adafruit_mcp230xx.digital_inout.DigitalInOut
-mock_mcpdigitalio = MagicMock()
-mock_mcpdigitalio.value = False
-mock_mcpdigitalio.Direction = MagicMock(INPUT="INPUT", OUTPUT="OUTPUT")
-mock_mcpdigitalio.Pull = MagicMock(UP="UP")
-mock_mcpmodule.get_pin.return_value = mock_mcpdigitalio
-sys.modules["adafruit_mcp230xx.mcp23017.MCP23017"] = mock_mcpmodule
