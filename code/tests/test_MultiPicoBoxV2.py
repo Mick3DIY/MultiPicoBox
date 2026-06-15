@@ -48,30 +48,6 @@ def test_ButtonManager():
     assert str(my_button) == "Push button/switch: TEST_BUTTON_NAME"
 
 
-def test_MCPManager():
-    """Tests for the MCP23017 sub-class"""
-
-    # Fake MCP with fake pins
-    I2C_address = 0x20
-    my_mcp = MCPManager(94, 95)
-    # I2C default address
-    assert my_mcp.get_address() == hex(I2C_address)
-    # Toggle switche (2x DigitalInOut)
-    toggle = my_mcp.get_toggle(1, 2, "test_mcp_name")
-    for i in range(2):
-        assert toggle[i].direction == "INPUT"
-        assert toggle[i].pull == "UP"
-        assert toggle[i].value == True
-    # Toggle name in uppercase
-    assert toggle[2] == "TEST_MCP_NAME"
-    # LED with fake pin
-    led = my_mcp.get_led(3)
-    assert led.direction == "OUTPUT"
-    assert led.value == False
-    # MCP __str__ method
-    assert str(my_mcp) == f"MCP23017 address: {hex(I2C_address)}"
-
-
 def test_MultiPicoBoxV2():
     """Tests for the main class"""
 

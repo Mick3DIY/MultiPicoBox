@@ -121,7 +121,8 @@ class MCPManager:
     def get_led(self, pin_2) -> DigitalInOut:
         """LEDs themselves"""
         _led = self._mcp.get_pin(pin_2)
-        _led.switch_to_output()
+        _led.direction = Direction.OUTPUT
+        _led.value = False
         return _led
 
     def __str__(self):
