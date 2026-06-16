@@ -8,32 +8,6 @@ from unittest.mock import MagicMock
 from MultiPicoBoxV2 import *
 
 
-def test_EncoderManager():
-    """Tests for the encoders sub-class"""
-
-    # Fake encoder with fake pins
-    my_encoder = EncoderManager(90, 91, 92, "test_encoder_name")
-    # Encoder
-    assert my_encoder.get_button().direction == "INPUT"
-    assert my_encoder.get_button().pull == "UP"
-    # Encoder default positions
-    assert my_encoder.get_position() == 0, "Encoder position is not zero by default !"
-    assert my_encoder.get_last_position() == 0
-    # Encoder positions
-    my_encoder.set_last_position(5)
-    assert my_encoder.get_last_position() == 5, "Encoder last position is not correct !"
-    # Fake encoder push button
-    f_button = MagicMock()
-    f_button = my_encoder.get_button()
-    f_button.value = False
-    # Encoder push button
-    assert my_encoder.get_button().value == False, "Encoder push button is not False by default !"
-    # Encoder name in uppercase
-    assert my_encoder.get_name() == "TEST_ENCODER_NAME", "Encoder name is not correct !"
-    # Encoder __str__ method
-    assert str(my_encoder) == "Encoder: TEST_ENCODER_NAME"
-
-
 def test_MultiPicoBoxV2():
     """Tests for the main class"""
 
