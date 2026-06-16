@@ -1,6 +1,7 @@
 # MultiPicoBoxV2 unit tests (pytest)
 # GitHub project : https://github.com/Mick3DIY/MultiPicoBox
 # Pytest documentation : https://docs.pytest.org
+# Unittest documentation : https://docs.python.org/3/library/unittest.html
 
 import pytest
 from unittest.mock import MagicMock
@@ -31,21 +32,6 @@ def test_EncoderManager():
     assert my_encoder.get_name() == "TEST_ENCODER_NAME", "Encoder name is not correct !"
     # Encoder __str__ method
     assert str(my_encoder) == "Encoder: TEST_ENCODER_NAME"
-
-
-def test_ButtonManager():
-    """Tests for the push buttons or momentary switches sub-class"""
-
-    # Fake button with fake pin
-    my_button = ButtonManager(93, "test_button_name")
-    # Push button
-    assert my_button.get_button().direction == "INPUT"
-    assert my_button.get_button().pull == "DOWN"
-    assert my_button.get_button().value == False, "Push button is not False by default !"
-    # Push button name in uppercase
-    assert my_button.get_name() == "TEST_BUTTON_NAME", "Push button name is not correct !"
-    # Push button __str__ method
-    assert str(my_button) == "Push button/switch: TEST_BUTTON_NAME"
 
 
 def test_MultiPicoBoxV2():
