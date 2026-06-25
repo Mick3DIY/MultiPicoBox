@@ -4,34 +4,43 @@
 # Unittest documentation : https://docs.python.org/3/library/unittest.html
 
 import pytest
-import unittest
-from unittest.mock import patch, MagicMock
 from MultiPicoBoxV2 import EncoderManager
+from conftest import mock_digitalio, mock_rotaryio
 
 
-class test_ButtonManager(unittest.TestCase):
+@pytest.fixture
+def manager():
+    """Fixture for each test"""
+    return EncoderManager(90, 91, 92, "test_encoder_name")
 
-    def test_init_success(self):
-        """Test for the encoders sub-class"""
 
-        # Fake encoder with fake pins
-        my_encoder = EncoderManager(90, 91, 92, "test_encoder_name")
-        # Encoder
-        assert my_encoder.get_button().direction == "INPUT"
-        assert my_encoder.get_button().pull == "UP"
-        # Encoder default positions
-        assert my_encoder.get_position() == 0, "Encoder position is not zero by default !"
-        assert my_encoder.get_last_position() == 0
-         # Encoder positions
-        my_encoder.set_last_position(5)
-        assert my_encoder.get_last_position() == 5, "Encoder last position is not correct !"
-        # Fake encoder push button
-        f_button = MagicMock()
-        f_button = my_encoder.get_button()
-        f_button.value = False
-        # Encoder push button
-        assert my_encoder.get_button().value == False, "Encoder push button is not False by default !"
-        # Encoder name in uppercase
-        assert my_encoder.get_name() == "TEST_ENCODER_NAME", "Encoder name is not correct !"
-        # Encoder __str__ method
-        assert str(my_encoder) == "Encoder: TEST_ENCODER_NAME"
+def test_init_success(manager):
+    """Test for the Encoder itself"""
+    assert manager.get_button().direction == "INPUT"
+    assert manager.get_button().pull == "UP"
+    # Encoder default positions
+    assert manager.get_position() == 0
+    assert manager.get_last_position() == 0
+    # Encoder name in uppercase
+    assert manager.get_name() == "TEST_ENCODER_NAME"
+    mock_rotaryio.IncrementalEncoder.assert_called_once_with(90, 91)
+    mock_digitalio.DigitalInOut.assert_called_once_with(92)
+
+
+def test_positions(manager):
+    """Test for the Encoder position"""
+    manager.set_last_position(5)
+    assert manager.get_last_position() == 5
+
+
+def test_button_state(manager):
+    """Test for the Encoder button"""
+    manager._button.value = False
+    assert manager.get_button().value == False
+    manager._button.value = True
+    assert manager.get_button().value == True
+
+
+def test_str_representation(manager):
+    """Test for the magic method __str__."""
+    assert str(manager) == "Encoder: TEST_ENCODER_NAME"

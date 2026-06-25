@@ -4,26 +4,33 @@
 # Unittest documentation : https://docs.python.org/3/library/unittest.html
 
 import pytest
-import unittest
-from unittest.mock import patch, MagicMock
 from MultiPicoBoxV2 import ButtonManager
+from conftest import mock_digitalio
 
 
-class test_ButtonManager(unittest.TestCase):
+@pytest.fixture
+def manager():
+    """Fixture for each test"""
+    return ButtonManager(93, "test_button_name")
 
-    def test_init_success(self):
-        """Test for the push buttons or momentary switches sub-class"""
 
-        # Fake button with fake pin
-        my_button = ButtonManager(93, "test_button_name")
-        assert my_button.get_button().direction == "INPUT"
-        assert my_button.get_button().pull == "DOWN"
-        # Push button name in uppercase
-        assert my_button.get_name() == "TEST_BUTTON_NAME", "Push button name is not correct !"
+def test_init_success(manager):
+    """Test for the push button or momentary switch itself"""
+    assert manager.get_button().direction == "INPUT"
+    assert manager.get_button().pull == "DOWN"
+    # Push button name in uppercase
+    assert manager.get_name() == "TEST_BUTTON_NAME"
+    mock_digitalio.DigitalInOut.assert_called_once_with(93)
 
-    def test_str_method(self):
-        """Test button __str__ method"""
 
-        # Fake button with fake pin
-        my_button = ButtonManager(93, "test_button_name")
-        assert str(my_button) == "Push button/switch: TEST_BUTTON_NAME"
+def test_button_switch_state(manager):
+    """Test for the push button or momentary switch"""
+    manager._button.value = False
+    assert manager.get_button().value == False
+    manager._button.value = True
+    assert manager.get_button().value == True
+
+
+def test_str_representation(manager):
+    """Test for the magic method __str__."""
+    assert str(manager) == "Push button/switch: TEST_BUTTON_NAME"
