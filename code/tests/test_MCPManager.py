@@ -34,8 +34,8 @@ def test_init_failure():
 def test_get_toggle(manager):
     """Test Toggle switch (2x DigitalInOut) from the MCP"""
     toggle = manager.get_toggle(1, 2, "test_mcp_name")
-    # manager._mcp.get_pin.assert_any_call(1)
-    # manager._mcp.get_pin.assert_any_call(2)
+    manager._mcp.get_pin.assert_any_call(1)
+    manager._mcp.get_pin.assert_any_call(2)
     assert len(toggle) == 3  # DigitalInOut, DigitalInOut, str
     for i in range(2):
         assert toggle[i].direction == "INPUT"
