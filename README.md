@@ -1,6 +1,6 @@
 # MultiPicoBox V2
 
-A simple PCB with a Raspberry Pi Pico and some buttons, LEDs for gaming...
+A simple PCB with a Raspberry Pi Pico and some buttons, LEDs for gaming or robots...
 
 This new version have :
 * 1 GPIO expander with a MCP23017 chip (**I2C communication with the Pico**,  with configurable jumpers address)
@@ -17,7 +17,7 @@ This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9.
 
 ## Printed Circuit Board (PCB) :
 
-The schematic and PCB are made with [KiCad](https://www.kicad.org) version 9 ([kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder).
+As part of an educational project, the schematic and PCB are made with [KiCad](https://www.kicad.org) version 9 ([kicad](kicad/) folder).
 
 First V2 prototype (8 x 8 cm only) from [AISLER](https://aisler.net) manufacturer :
 
@@ -39,11 +39,16 @@ The first enclosure prototype is made with [FreeCad](https://www.freecad.org) ve
 
 ## Code :
 
-* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components :wrench:
+* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components only :wrench:
 
 * **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
 
-Look at the [code](https://github.com/Mick3DIY/MultiPicoBox/tree/main/code) folder for more details.
+Look at the [code](code/) folder for more details.
+
+## TODO :
+
+* Add unit tests for the MultiPicoBoxV2 class (code/tests folder)
+* Add code for renaming the interface name : `usb_hid.set_interface_name()`
 
 ## Documentation :
 
@@ -66,7 +71,7 @@ Rotary encoders :
 
 ## Bill Of Materials (BOM) :
 
-The BOM and an interactive BOM (HTML version) for components assembly are in the [kicad](https://github.com/Mick3DIY/MultiPicoBox/tree/main/kicad) folder.
+The BOM and an interactive BOM (HTML version) for components assembly are in the [kicad](kicad/) folder.
 
 
 > [!NOTE]
