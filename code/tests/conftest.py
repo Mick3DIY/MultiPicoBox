@@ -14,10 +14,10 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 mock_board = MagicMock()
 mock_busio = MagicMock()
 mock_digitalio = MagicMock()
-mock_rotaryio = MagicMock()
-mock_mcp = MagicMock()
 mock_digitalio.Direction = MagicMock(INPUT="INPUT", OUTPUT="OUTPUT")
 mock_digitalio.Pull = MagicMock(UP="UP", DOWN="DOWN")
+mock_rotaryio = MagicMock()
+mock_mcp = MagicMock()
 
 sys.modules["board"] = mock_board
 sys.modules["busio"] = mock_busio
@@ -39,8 +39,14 @@ sys.modules["mcpmanager"] = mock_mcp_mgr
 def clean_global_mocks():
     """Clean global mocks before each test"""
     for mock in [
-        mock_board, mock_busio, mock_digitalio,
-        mock_rotaryio, mock_mcp, 
-        mock_encoder_mgr, mock_button_mgr, mock_mcp_mgr,]:
+        mock_board,
+        mock_busio,
+        mock_digitalio,
+        mock_rotaryio,
+        mock_mcp,
+        mock_encoder_mgr,
+        mock_button_mgr,
+        mock_mcp_mgr,
+    ]:
         mock.reset_mock()
     mock_mcp.MCP23017.side_effect = None

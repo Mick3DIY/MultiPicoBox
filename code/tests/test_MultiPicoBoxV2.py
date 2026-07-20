@@ -19,11 +19,12 @@ def my_box():
 
 
 def test_init_rotary_encoders(my_box):
-    """Test for the rotary encoders"""
-    assert len(my_box.rotary_encoders) == len(my_box.get_all_rot_encoders())
+    """Test for the rotary encoders (4)"""
+    assert len(my_box.get_all_rot_encoders()) == 4
     assert all(
         isinstance(item, EncoderManager) for item in my_box.get_all_rot_encoders()
     )
+    # Constants dictionnary
     assert "SW5" in my_box.rotary_encoders  # First
     assert my_box.C_SW5 == "SW5"
     assert "SW8" in my_box.rotary_encoders  # Last
@@ -31,11 +32,12 @@ def test_init_rotary_encoders(my_box):
 
 
 def test_init_push_buttons(my_box):
-    """Test for the push buttons"""
-    assert len(my_box.push_buttons) == len(my_box.get_all_push_buttons())
+    """Test for the push buttons (4)"""
+    assert len(my_box.get_all_push_buttons()) == 4
     assert all(
         isinstance(item, ButtonManager) for item in my_box.get_all_push_buttons()
     )
+    # Constants dictionnary
     assert "SW9" in my_box.push_buttons  # First
     assert my_box.C_SW9 == "SW9"
     assert "SW12" in my_box.push_buttons  # Last
@@ -43,11 +45,12 @@ def test_init_push_buttons(my_box):
 
 
 def test_init_momentary_switches(my_box):
-    """Test for the push buttons"""
-    assert len(my_box.moment_switches) == len(my_box.get_all_mom_switches())
+    """Test for the push buttons (4)"""
+    assert len(my_box.get_all_mom_switches()) == 4
     assert all(
         isinstance(item, ButtonManager) for item in my_box.get_all_mom_switches()
     )
+    # Constants dictionnary
     assert "SW13" in my_box.moment_switches  # First
     assert my_box.C_SW13 == "SW13"
     assert "SW16" in my_box.moment_switches  # Last
@@ -56,7 +59,8 @@ def test_init_momentary_switches(my_box):
 
 def test_init_toggle_switches(my_box):
     """Test for the toggle switches (8 switches -> 4 toggles switches)"""
-    assert len(my_box.toggle_switches) / 2 == len(my_box.get_all_tog_switches())
+    assert len(my_box.get_all_tog_switches()) == 4
+    # Constants dictionnary
     assert "TSSW1_1" in my_box.toggle_switches  # First
     assert my_box.C_TSSW1_1 == "TSSW1_1"
     assert "TSSW4_1" in my_box.toggle_switches  # Last
