@@ -66,8 +66,7 @@ Microchip GPIO expander MCP23017 :
 Rotary encoders :
 * https://learn.adafruit.com/rotary-encoder?view=all
 * https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/
-* Alps EC11E series : https://tech.alpsalpine.com/e/products/category/encorders/sub/01/series/ec11e/
-* Bourns PEC11R series : https://www.bourns.com/products/encoders/contacting-encoders
+* Bourns PEC11R Series : https://www.bourns.com/resources/rohs/encoders/contacting-encoders
 
 ## Bill Of Materials (BOM) :
 
@@ -75,6 +74,6 @@ The BOM and an interactive BOM (HTML version) for components assembly are in the
 
 
 > [!NOTE]
-> Big thanks to the [Adafruit](https://www.adafruit.com) company, to all [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org) communities. :heart:
+> Big thanks to the [Adafruit](https://www.adafruit.com) company, to all [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org), [KiCad](https://www.kicad.org), [FreeCad](https://www.freecad.org) and plugins communities. :heart:
 
 Happy coding & have fun ! :partying_face:
