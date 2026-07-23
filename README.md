@@ -19,6 +19,8 @@ This Raspberry Pi Pico use [CircuitPython](https://circuitpython.org) version 9.
 
 As part of an educational project, the schematic and PCB are made with [KiCad](https://www.kicad.org) version 9 ([kicad](kicad/) folder).
 
+:bulb: All important parameters are stored in the schematic/PCB editors **text variables** (common project variables).
+
 First V2 prototype (8 x 8 cm only) from [AISLER](https://aisler.net) manufacturer :
 
 ![MultiPicoBoxV2_2026-05-22](assets/MultiPicoBoxV2_2026-05-22.png)
