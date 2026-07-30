@@ -1,4 +1,6 @@
-![MadeForRaspberryPiPico(forthebadge.com)](assets/made-for-raspberry-pi-pico.svg)
+<picture>
+    <img alt="MadeForRaspberryPiPico(forthebadge.com)" src="assets/made-for-raspberry-pi-pico.svg">
+</picture>
 
 # MultiPicoBox V2
 
@@ -53,7 +55,8 @@ Look at the [code](code/) folder for more details.
 
 * [code] Add unit tests for the MultiPicoBoxV2 class (code/tests folder)
 * [code] Add code for renaming the interface name : `usb_hid.set_interface_name()`
-* [pcb] Add RUN pin (Pico n°30) in J24 (2 -> 4 pins) : GPA7, GPB7, RUN, GP22, remove J25 ?
+* [freecad] Add 3D enclosure files for printing, building
+* [pcb] Add RUN pin (Pico n°30) in J24 (2 -> 4 pins) : GPA7, GPB7, RUN, GP22 and remove J25 ?
 * [pcb] Add mounting holes (with GND), round corners
 
 ## Documentation :
