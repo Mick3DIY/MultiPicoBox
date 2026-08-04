@@ -45,7 +45,7 @@ The first enclosure prototype is made with [FreeCad](https://www.freecad.org) ve
 
 ## Code :
 
-* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components only :wrench:
+* **MultiPicoBoxV2_PCB_test** is for testing the PCB with all external components only (minimum code) :wrench:
 
 * **MultiPicoBoxV2_JoystickXL_test** is for testing everything like a gamepad :joystick:
 
@@ -53,11 +53,11 @@ Look at the [code](code/) folder for more details.
 
 ## TODO :
 
-* [code] Add unit tests for the MultiPicoBoxV2 class (code/tests folder)
-* [code] Add code for renaming the interface name : `usb_hid.set_interface_name()`
-* [freecad] Add 3D enclosure files for printing, building
-* [pcb] Add RUN pin (Pico n°30) in J24 (2 -> 4 pins) : GPA7, GPB7, RUN, GP22 and remove J25 ?
-* [pcb] Add mounting holes (with GND), round corners
+- [ ] [code] Add unit tests for the MultiPicoBoxV2 class (code/tests folder)
+- [ ] [code] Add code for renaming the interface name : `usb_hid.set_interface_name()`
+- [ ] [freecad] Add 3D enclosure files for printing, building
+- [ ] [pcb] Add RUN pin (Pico n°30) in J24 (2 -> 4 pins) : GPA7, GPB7, RUN, GP22 and remove J25 ?
+- [ ] [pcb] Add mounting holes (with GND), round corners
 
 ## Documentation :
 
@@ -85,4 +85,4 @@ The BOM and an interactive BOM (HTML version) for components assembly are in the
 > [!NOTE]
 > Big thanks to the [Adafruit](https://www.adafruit.com) company, to all [Python](https://www.python.org/), [MicroPython](https://micropython.org), [CircuitPython](https://circuitpython.org), [KiCad](https://www.kicad.org), [FreeCad](https://www.freecad.org) and plugins communities. :heart:
 
-Happy coding & have fun ! :partying_face:
+Happy soldering, coding & have fun ! :partying_face:
