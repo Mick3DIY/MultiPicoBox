@@ -1,0 +1,8 @@
+[report]
+exclude_also =
+    def _action_encoders
+    def _action_pushbuttons
+    def _action_momswitches
+    def _action_togswitches
+    def _action_debug
+    def _get_all_leds
