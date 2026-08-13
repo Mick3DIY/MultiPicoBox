@@ -247,9 +247,8 @@ class MultiPicoBoxV2:
         self._sw17 = ButtonManager(board.GP22, "SW17")
 
     # --------------------------------------------------------------
-    # Static methods for internal actions
+    # Internal methods for actions
     # --------------------------------------------------------------
-    @staticmethod
     def _action_encoders(self, name: str) -> None:
         """Actions for rotary encoder push buttons"""
         if name == self.C_SW5:
@@ -263,7 +262,6 @@ class MultiPicoBoxV2:
         else:
             raise ValueError("_action_encoders wrong value")
 
-    @staticmethod
     def _action_pushbuttons(self, name: str) -> None:
         """Actions for push buttons"""
         if name == self.C_SW9:
@@ -277,7 +275,6 @@ class MultiPicoBoxV2:
         else:
             raise ValueError("_action_pushbuttons wrong value")
 
-    @staticmethod
     def _action_momswitches(self, name: str) -> None:
         """Actions for momentary switches"""
         if name == self.C_SW13:
@@ -291,7 +288,6 @@ class MultiPicoBoxV2:
         else:
             raise ValueError("_action_momswitches wrong value")
 
-    @staticmethod
     def _action_togswitches(self, name: str) -> None:
         """Actions for toggle switches"""
         if name == self.C_TSSW1_1:
@@ -313,14 +309,20 @@ class MultiPicoBoxV2:
         else:
             raise ValueError("_action_togswitches wrong value")
 
-    @staticmethod
     def _action_debug(self, message: str) -> None:
         """Show action messages from all inputs"""
         if self._debug_:
             print(message)
+    
+    # --------------------------------------------------------------
+    # Other internal methods
+    # --------------------------------------------------------------
+    def _get_all_leds(self) -> list[DigitalInOut]:
+        """Return all LEDs in the board"""
+        return (self._d1, self._d2, self._d3, self._d4, self._d5, self._d6, self._ledOnboard)
 
     # --------------------------------------------------------------
-    # Public methods for external updates
+    # Public methods for external updates, actions
     # --------------------------------------------------------------
     def update(self) -> None:
         """Physical inputs from Pico and MCP"""
@@ -382,11 +384,6 @@ class MultiPicoBoxV2:
     def get_all_tog_switches(self) -> list[DigitalInOut, DigitalInOut, str]:
         """Return all toggle switches"""
         return (self._tssw1, self._tssw2, self._tssw3, self._tssw4)
-
-    @staticmethod
-    def _get_all_leds(self) -> list[DigitalInOut]:
-        """Return all LEDs in the board"""
-        return (self._d1, self._d2, self._d3, self._d4, self._d5, self._d6, self._ledOnboard)
 
     def blink_leds(self, duration=0.1) -> None:
         """Blink all LEDs with minimal duration"""
