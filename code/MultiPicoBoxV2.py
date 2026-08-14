@@ -118,11 +118,12 @@ class MCPManager:
         _toggleSwitch.append(str.upper(name))
         return _toggleSwitch
 
-    def get_led(self, pin_2) -> DigitalInOut:
-        """LEDs themselves"""
-        _led = self._mcp.get_pin(pin_2)
-        _led.direction = Direction.OUTPUT
-        _led.value = False
+    def get_led(self, pin_2, name) -> list[DigitalInOut, str]:
+        """LEDs themselves or MCP outputs pin_2, name"""
+        _led = [self._mcp.get_pin(pin_2)]
+        _led[0].direction = Direction.OUTPUT
+        _led[0].value = False
+        _led.append(str.upper(name))
         return _led
 
     def __str__(self):
@@ -195,8 +196,10 @@ class MultiPicoBoxV2:
         # --------------------------------------------------------------
         # Pico on-board LED (GPIO25)
         # --------------------------------------------------------------
-        self._ledOnboard = DigitalInOut(board.GP25)
-        self._ledOnboard.direction = Direction.OUTPUT
+        self._ledOnboard = [DigitalInOut(board.GP25)]
+        self._ledOnboard[0].direction = Direction.OUTPUT
+        self._ledOnboard[0].value = False
+        self._ledOnboard.append("ONBOARD")
         # --------------------------------------------------------------
         # Bus I2C Raspberry Pi Pico <-> MCP23017 (Default address '0x20')
         # --------------------------------------------------------------
@@ -223,23 +226,23 @@ class MultiPicoBoxV2:
         # LEDs (MCP)
         # --------------------------------------------------------------
         # LED D1 (J9)
-        self._d1 = self._mcp.get_led(1)
+        self._d1 = self._mcp.get_led(1, "D1")
         # LED D2 (J10)
-        self._d2 = self._mcp.get_led(2)
+        self._d2 = self._mcp.get_led(2, "D2")
         # LED D3 (J11)
-        self._d3 = self._mcp.get_led(3)
+        self._d3 = self._mcp.get_led(3, "D3")
         # LED D4 (J12)
-        self._d4 = self._mcp.get_led(4)
+        self._d4 = self._mcp.get_led(4, "D4")
         # LED D5 (J13)
-        self._d5 = self._mcp.get_led(5)
+        self._d5 = self._mcp.get_led(5, "D5")
         # LED D6 (J14)
-        self._d6 = self._mcp.get_led(6)
+        self._d6 = self._mcp.get_led(6, "D6")
         # --------------------------------------------------------------
         # Free connectors : GPA7, GPB7 are OUTPUT only like LEDs (MCP)
         # --------------------------------------------------------------
         # GPA7, GPB7 (J24)
-        self._gpa7 = self._mcp.get_led(7)
-        self._gpb7 = self._mcp.get_led(15)
+        self._gpa7 = self._mcp.get_led(7, "GPA7")
+        self._gpb7 = self._mcp.get_led(15, "GPB7")
         # --------------------------------------------------------------
         # Free connector : GP22 as a input (Pico)
         # --------------------------------------------------------------
@@ -313,14 +316,17 @@ class MultiPicoBoxV2:
         """Show action messages from all inputs"""
         if self._debug_:
             print(message)
-    
+
     # --------------------------------------------------------------
     # Other internal methods
     # --------------------------------------------------------------
-    def _get_all_leds(self) -> list[DigitalInOut]:
+    def _get_all_leds(self) -> list[[DigitalInOut, str]]:
         """Return all LEDs in the board"""
         return (self._d1, self._d2, self._d3, self._d4, self._d5, self._d6, self._ledOnboard)
 
+    def _get_all_mcp_leds(self) -> list[[DigitalInOut, str]]:
+        """Return all MCP LEDs and outputs in the board"""
+        return (self._d1, self._d2, self._d3, self._d4, self._d5, self._d6, self._gpa7, self._gpb7)
     # --------------------------------------------------------------
     # Public methods for external updates, actions
     # --------------------------------------------------------------
@@ -387,24 +393,33 @@ class MultiPicoBoxV2:
 
     def blink_leds(self, duration=0.1) -> None:
         """Blink all LEDs with minimal duration"""
-        for led in self._get_all_leds(self):
+        for led, state in self._get_all_leds():
             led.value = True
             sleep(duration)
             led.value = False
 
+    def switch_mcp_leds(self, leds: list[[str, int]]) -> None:
+        """Switch ON/OFF the MCP LEDs : D1 -> D6, GPA7, GPB7
+           list[["D1", 1],["D2", 0]] where 1 : ON, 0 : OFF
+        """
+        for led_name, state in leds:
+            for mcp_leds in self._get_all_mcp_leds():
+                if mcp_leds[1] == led_name:
+                    mcp_leds[0].value = bool(state)
+
     def switch_on_ledOnboard(self) -> None:
         """Switch on the onboard LED"""
-        self._ledOnboard.value = True
+        self._ledOnboard[0].value = True
 
     def switch_on_leds(self) -> None:
         """Switch ON all LEDs onboard"""
-        for led in self._get_all_leds(self):
-            led.value = True
+        for led in self._get_all_leds():
+            led[0].value = True
 
     def switch_off_leds(self) -> None:
         """Switch OFF all LEDs onboard"""
-        for led in self._get_all_leds(self):
-            led.value = False
+        for led in self._get_all_leds():
+            led[0].value = False
 
     def show_debug(self) -> None:
         """Show debug messages"""

@@ -46,10 +46,12 @@ def test_get_toggle(manager):
 
 def test_get_led(manager):
     """Test LED from the MCP"""
-    led = manager.get_led(99)
-    assert led.direction == "OUTPUT"
-    assert led.value == False
+    led = manager.get_led(99, "test_mcp_led")
+    assert led[0].direction == "OUTPUT"
+    assert led[0].value == False
     manager._mcp.get_pin.assert_called_with(99)
+    # LED name in uppercase
+    assert led[1] == "TEST_MCP_LED"
 
 
 def test_str_representation(manager):
