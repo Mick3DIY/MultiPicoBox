@@ -255,60 +255,60 @@ class MultiPicoBoxV2:
     def _action_encoders(self, name: str) -> None:
         """Actions for rotary encoder push buttons"""
         if name == self.C_SW5:
-            self._action_debug(self, f"Rotary encoder pressed n°1 : {name}")
+            self._action_debug(f"Rotary encoder pressed n°1 : {name}")
         elif name == self.C_SW6:
-            self._action_debug(self, f"Rotary encoder pressed n°2 : {name}")
+            self._action_debug(f"Rotary encoder pressed n°2 : {name}")
         elif name == self.C_SW7:
-            self._action_debug(self, f"Rotary encoder pressed n°3 : {name}")
+            self._action_debug(f"Rotary encoder pressed n°3 : {name}")
         elif name == self.C_SW8:
-            self._action_debug(self, f"Rotary encoder pressed n°4 : {name}")
+            self._action_debug(f"Rotary encoder pressed n°4 : {name}")
         else:
             raise ValueError("_action_encoders wrong value")
 
     def _action_pushbuttons(self, name: str) -> None:
         """Actions for push buttons"""
         if name == self.C_SW9:
-            self._action_debug(self, f"Push button pressed n°1 : {name}")
+            self._action_debug(f"Push button pressed n°1 : {name}")
         elif name == self.C_SW10:
-            self._action_debug(self, f"Push button pressed n°2 : {name}")
+            self._action_debug(f"Push button pressed n°2 : {name}")
         elif name == self.C_SW11:
-            self._action_debug(self, f"Push button pressed n°3 : {name}")
+            self._action_debug(f"Push button pressed n°3 : {name}")
         elif name == self.C_SW12:
-            self._action_debug(self, f"Push button pressed n°4 : {name}")
+            self._action_debug(f"Push button pressed n°4 : {name}")
         else:
             raise ValueError("_action_pushbuttons wrong value")
 
     def _action_momswitches(self, name: str) -> None:
         """Actions for momentary switches"""
         if name == self.C_SW13:
-            self._action_debug(self, f"Momentary switch pressed n°1 : {name}")
+            self._action_debug(f"Momentary switch pressed n°1 : {name}")
         elif name == self.C_SW14:
-            self._action_debug(self, f"Momentary switch pressed n°2 : {name}")
+            self._action_debug(f"Momentary switch pressed n°2 : {name}")
         elif name == self.C_SW15:
-            self._action_debug(self, f"Momentary switch pressed n°3 : {name}")
+            self._action_debug(f"Momentary switch pressed n°3 : {name}")
         elif name == self.C_SW16:
-            self._action_debug(self, f"Momentary switch pressed n°4 : {name}")
+            self._action_debug(f"Momentary switch pressed n°4 : {name}")
         else:
             raise ValueError("_action_momswitches wrong value")
 
     def _action_togswitches(self, name: str) -> None:
         """Actions for toggle switches"""
         if name == self.C_TSSW1_1:
-            self._action_debug(self, f"Toggle switch pressed n°1 : {name}")
+            self._action_debug(f"Toggle switch pressed n°1 : {name}")
         elif name == self.C_TSSW1_3:
-            self._action_debug(self, f"Toggle switch pressed n°2 : {name}")
+            self._action_debug(f"Toggle switch pressed n°2 : {name}")
         elif name == self.C_TSSW2_1:
-            self._action_debug(self, f"Toggle switch pressed n°3 : {name}")
+            self._action_debug(f"Toggle switch pressed n°3 : {name}")
         elif name == self.C_TSSW2_3:
-            self._action_debug(self, f"Toggle switch pressed n°4 : {name}")
+            self._action_debug(f"Toggle switch pressed n°4 : {name}")
         elif name == self.C_TSSW3_1:
-            self._action_debug(self, f"Toggle switch pressed n°5 : {name}")
+            self._action_debug(f"Toggle switch pressed n°5 : {name}")
         elif name == self.C_TSSW3_3:
-            self._action_debug(self, f"Toggle switch pressed n°6 : {name}")
+            self._action_debug(f"Toggle switch pressed n°6 : {name}")
         elif name == self.C_TSSW4_1:
-            self._action_debug(self, f"Toggle switch pressed n°7 : {name}")
+            self._action_debug(f"Toggle switch pressed n°7 : {name}")
         elif name == self.C_TSSW4_3:
-            self._action_debug(self, f"Toggle switch pressed n°8 : {name}")
+            self._action_debug(f"Toggle switch pressed n°8 : {name}")
         else:
             raise ValueError("_action_togswitches wrong value")
 
@@ -336,19 +336,19 @@ class MultiPicoBoxV2:
         # Rotary encoders push button (Pico), PULL.UP
         for name, button in self.rotary_encoders.items():
             if not button.get_button().value:
-                self._action_encoders(self, name)
+                self._action_encoders(name)
         # Push buttons (Pico), PULL.DOWN
         for name, button in self.push_buttons.items():
             if button.get_button().value:
-                self._action_pushbuttons(self, name)
+                self._action_pushbuttons(name)
         # Momentary switches (Pico), PULL.DOWN
         for name, button in self.moment_switches.items():
             if button.get_button().value:
-                self._action_momswitches(self, name)
+                self._action_momswitches(name)
         # Toggle switches (MCP), PULL.UP
         for name, button in self.toggle_switches.items():
             if not button.value:
-                self._action_togswitches(self, name)
+                self._action_togswitches(name)
 
     def update_vi(self, encoders_vi) -> None:
         """Encoder virtual inputs for JoystickXL"""
@@ -399,13 +399,14 @@ class MultiPicoBoxV2:
             led.value = False
 
     def switch_mcp_leds(self, leds: list[[str, int]]) -> None:
-        """Switch ON/OFF the MCP LEDs : D1 -> D6, GPA7, GPB7
+        """Switch ON/OFF the MCP LEDs, outputs : D1 -> D6, GPA7, GPB7
            list[["D1", 1],["D2", 0]] where 1 : ON, 0 : OFF
         """
         for led_name, state in leds:
             for mcp_leds in self._get_all_mcp_leds():
                 if mcp_leds[1] == led_name:
                     mcp_leds[0].value = bool(state)
+                    self._action_debug(f"Switch MCP LED/output {led_name} : {state}")
 
     def switch_on_ledOnboard(self) -> None:
         """Switch on the onboard LED"""
