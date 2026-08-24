@@ -405,7 +405,7 @@ class MultiPicoBoxV2:
         _all_leds_ouputs = self._get_all_mcp_leds()
         for led_name, state in leds:
             for index, mcp_leds in enumerate(_all_leds_ouputs):
-                if mcp_leds[1] == led_name:
+                if mcp_leds[1] == led_name.upper():
                     mcp_leds[0].value = bool(state)
                     self._action_debug(f"Switch MCP LED/output {led_name} : {state}")
                     break
