@@ -6,3 +6,4 @@ exclude_also =
     def _action_togswitches
     def _action_debug
     def _get_all_leds
+    def _get_all_mcp_leds

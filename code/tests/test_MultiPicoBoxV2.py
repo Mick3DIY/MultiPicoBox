@@ -65,3 +65,10 @@ def test_init_toggle_switches(my_box):
     assert my_box.C_TSSW1_1 == "TSSW1_1"
     assert "TSSW4_1" in my_box.toggle_switches  # Last
     assert my_box.C_TSSW4_1 == "TSSW4_1"
+
+
+def test_switch_mcp_leds(my_box):
+    """Test for raising error to switch ON/OFF the MCP LEDs and outputs"""
+    with pytest.raises(ValueError):
+        # D99 don't exist in the board (D1 -> D6, GPA7, GPB7)
+        my_box.switch_mcp_leds([["D99", 1]])
