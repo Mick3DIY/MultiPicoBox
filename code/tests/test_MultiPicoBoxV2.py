@@ -18,6 +18,12 @@ def my_box():
     return MultiPicoBoxV2()
 
 
+@pytest.fixture
+def manager():
+    """Fixture for MCP tests"""
+    return MCPManager(94, 95)
+
+
 def test_init_rotary_encoders(my_box):
     """Test for the rotary encoders (4)"""
     assert len(my_box.get_all_rot_encoders()) == 4
@@ -67,7 +73,18 @@ def test_init_toggle_switches(my_box):
     assert my_box.C_TSSW4_1 == "TSSW4_1"
 
 
-def test_switch_mcp_leds(my_box):
+def test_switch_mcp_leds(manager, my_box):
+    """Test for switching ON/OFF the MCP LEDs and outputs"""
+    led = manager.get_led(99, "d1")
+    assert led[0].direction == "OUTPUT"
+    assert led[0].value == False
+    my_box.switch_mcp_leds([["d1", 1]])  # Lowercase, ON
+    assert led[0].value == True
+    my_box.switch_mcp_leds([["D1", 0]])  # Uppercase, OFF
+    assert led[0].value == False
+
+
+def test_raises_switch_mcp_leds(my_box):
     """Test for raising error to switch ON/OFF the MCP LEDs and outputs"""
     with pytest.raises(ValueError):
         # D99 don't exist in the board (D1 -> D6, GPA7, GPB7)
