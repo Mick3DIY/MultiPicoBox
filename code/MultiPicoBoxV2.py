@@ -399,14 +399,19 @@ class MultiPicoBoxV2:
             led.value = False
 
     def switch_mcp_leds(self, leds: list[[str, int]]) -> None:
-        """Switch ON/OFF the MCP LEDs, outputs : D1 -> D6, GPA7, GPB7
-           list[["D1", 1],["D2", 0]] where 1 : ON, 0 : OFF
+        """Switch ON/OFF the MCP LEDs and outputs : D1 -> D6, GPA7, GPB7
+        list[["D1", 1],["D2", 0]] where 1 = ON, 0 = OFF
         """
+        _all_leds_ouputs = self._get_all_mcp_leds()
         for led_name, state in leds:
-            for mcp_leds in self._get_all_mcp_leds():
+            for index, mcp_leds in enumerate(_all_leds_ouputs):
                 if mcp_leds[1] == led_name:
                     mcp_leds[0].value = bool(state)
                     self._action_debug(f"Switch MCP LED/output {led_name} : {state}")
+                    break
+                # No LED/output name found in the list
+                if index == len(_all_leds_ouputs) - 1:
+                    raise ValueError(f"switch_mcp_leds wrong LED/output value name : {led_name}")
 
     def switch_on_ledOnboard(self) -> None:
         """Switch on the onboard LED"""

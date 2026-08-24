@@ -50,6 +50,8 @@ jsVIs = [
 myBox.blink_leds()
 # Pico status
 myBox.switch_on_ledOnboard()
+# Switch ON some LEDs (basic example)
+# myBox.switch_mcp_leds([["D1", 1], ["D3", 1], ["D5", 1]])
 # Main loop
 try:
     while True:
@@ -63,4 +65,3 @@ except Exception as err:
     print(f"Error: {err}")
 finally:
     myBox.switch_off_leds()
-
