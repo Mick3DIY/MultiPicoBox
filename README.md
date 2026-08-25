@@ -57,9 +57,10 @@ Look at the [code](code/) folder for more details.
 
 - [ ] [code] Add unit tests for the MultiPicoBoxV2 class (code/tests folder)
 - [x] [code] Add code for renaming the interface name : `usb_hid.set_interface_name()`
-- [ ] [freecad] Add 3D enclosure files for printing, building
-- [ ] [pcb] Add RUN pin (Pico n°30) in J24 (2 -> 4 pins) : GPA7, GPB7, RUN, GP22 and remove J25 ? Or J24, J25 +1 pin ?
-- [ ] [pcb] Add mounting holes (with GND), round corners
+- [x] [freecad] Add 3D enclosure files for printing, building
+- [ ] [freecad] Add 3D enclosure files for 3D printing, stl or step format ?
+- [ ] [kicad] Add RUN pin (Pico n° 30) in J24 (2 -> 4 pins) : GPA7, GPB7, RUN, GP22 and remove J25 ? Or J24, J25 +1 pin ?
+- [ ] [kicad] Add mounting holes (with GND), round corners
 
 ## Documentation :
 
