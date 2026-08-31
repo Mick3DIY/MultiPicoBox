@@ -1,4 +1,4 @@
-## 3D Enclosure :
+## 3D Enclosure (Work is progress) :
 
 This first enclosure prototype is in seven parts (all in the compressed file) :
 
@@ -14,6 +14,21 @@ This first enclosure prototype is in seven parts (all in the compressed file) :
 | Dimensions.FCStd | All parametric values in mm |
 
 You can print all these parts from the PDF files in this folder.
+
+If you have a 3D printer, you can print all the three parts (see the **3DPrint** compressed file with STL format) :
+
+| Original document | Comment |
+| --------- | --------- |
+| 00_MultiPicoBox_Assembly.FCStd | General 3D view assembly |
+| 01_MultiPicoBox_Main_panel.FCStd | Main panel in one part |
+| 02_MultiPicoBox_Buttons_panel.FCStd | Buttons face part |
+| 03_MultiPicoBox_LEDs_panel.FCStd | LEDs face part |
+
+All measurements are in 'VarSet' section on each files.
+
+![MultiPicoBoxV2_Encl_3DPrint_WIP_2026-08-31](../assets/MultiPicoBoxV2_Encl_3DPrint_WIP_2026-08-31.png)
+
+Don't forget to adjust drills diameter (buttons, LEDs...), add some filets for a perfect finish !
 
 
 > [!NOTE]
