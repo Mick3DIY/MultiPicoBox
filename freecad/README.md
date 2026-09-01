@@ -24,11 +24,9 @@ If you have a 3D printer, you can print all the three parts (see the **3DPrint**
 | 02_MultiPicoBox_Buttons_panel.FCStd | Buttons face part |
 | 03_MultiPicoBox_LEDs_panel.FCStd | LEDs face part |
 
-All measurements are in 'VarSet' section on each files.
-
 ![MultiPicoBoxV2_Encl_3DPrint_WIP_2026-08-31](../assets/MultiPicoBoxV2_Encl_3DPrint_WIP_2026-08-31.png)
 
-Don't forget to adjust drills diameter (buttons, LEDs...), add some filets for a perfect finish !
+All measurements are in 'VarSet' section on each files so don't forget to adjust drills diameter (buttons, LEDs...), add some filets for a perfect finish !
 
 
 > [!NOTE]
