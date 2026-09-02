@@ -11,7 +11,7 @@ from conftest import mock_busio, mock_digitalio, mock_mcp
 
 @pytest.fixture
 def my_box():
-    """Fixture for each test"""
+    """Fixture for the main class"""
     # Internal mocks (from MultiPicoBoxV2 class)
     from conftest import mock_encoder_mgr, mock_button_mgr, mock_mcp_mgr
 

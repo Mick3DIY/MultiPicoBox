@@ -26,7 +26,7 @@ pip install --requirement requirements.txt
 pytest -rpP
 ```
 
-  4.1 Run the tests covering with line numbers (optional)
+  4.1 Run the tests covering with line numbers, optional but very useful
     
   ```shell
   pytest --cov --cov-report=term-missing
@@ -51,6 +51,8 @@ Python : https://www.python.org/doc/
 Pip via the Python Package Index (PyPI) : https://pypi.org
 
 Pytest : https://docs.pytest.org/en/stable/
+
+Pytest-cov : https://pytest-cov.readthedocs.io/en/latest/
 
 ## Python pip useful commands
 
