@@ -29,6 +29,8 @@ First V2 prototype (8 x 8 cm only) from [AISLER](https://aisler.net) manufacture
 
 ![MultiPicoBoxV2_2026-05-22](assets/MultiPicoBoxV2_2026-05-22.png)
 
+Get a unique 10€ coupon code in <ins>your first order</ins> in [AISLER](https://aisler.net) with my referral code : `MakeInEurope-ECYPW` :heart:
+
 Some useful plugins for KiCad :
 * AISLER Push for KiCad : https://github.com/aislerhq (with AISLER repository to always get the latest updates)
 * Interactive HTML BOM : https://github.com/openscopeproject/InteractiveHtmlBom
